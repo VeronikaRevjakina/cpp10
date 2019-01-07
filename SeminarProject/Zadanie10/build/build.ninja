@@ -60,20 +60,27 @@ build PHONY: phony
 
 # Build rules for targets
 
-build src/test/src@test@@rotate90_test@exe/rotate90_test.cc.o: cpp_COMPILER ../src/test/rotate90_test.cc
- DEPFILE = src/test/src@test@@rotate90_test@exe/rotate90_test.cc.o.d
- ARGS = -Isrc/test/src@test@@rotate90_test@exe -Isrc/test -I../src/test -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always --coverage -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread
+build src/myproject/src@myproject@@myproject@exe/main.cc.o: cpp_COMPILER ../src/myproject/main.cc
+ DEPFILE = src/myproject/src@myproject@@myproject@exe/main.cc.o.d
+ ARGS = -Isrc/myproject/src@myproject@@myproject@exe -Isrc/myproject -I../src/myproject -Isrc -I../src -fdiagnostics-color=always -fsanitize=address -fno-omit-frame-pointer --coverage -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g
 
-build src/test/src@test@@rotate90_test@exe/gtest-all.cc.o: cpp_COMPILER /usr/src/gtest/src/gtest-all.cc
- DEPFILE = src/test/src@test@@rotate90_test@exe/gtest-all.cc.o.d
- ARGS = -Isrc/test/src@test@@rotate90_test@exe -Isrc/test -I../src/test -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always --coverage -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread
+build src/myproject/myproject: cpp_LINKER src/myproject/src@myproject@@myproject@exe/main.cc.o
+ LINK_ARGS = -fsanitize=address --coverage -Wl,--no-undefined -Wl,--as-needed
 
-build src/test/src@test@@rotate90_test@exe/gtest_main.cc.o: cpp_COMPILER /usr/src/gtest/src/gtest_main.cc
- DEPFILE = src/test/src@test@@rotate90_test@exe/gtest_main.cc.o.d
- ARGS = -Isrc/test/src@test@@rotate90_test@exe -Isrc/test -I../src/test -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always --coverage -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread
+build src/test/src@test@@rotate90_test.cc@exe/rotate90_test.cc.o: cpp_COMPILER ../src/test/rotate90_test.cc
+ DEPFILE = src/test/src@test@@rotate90_test.cc@exe/rotate90_test.cc.o.d
+ ARGS = -Isrc/test/src@test@@rotate90_test.cc@exe -Isrc/test -I../src/test -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -fsanitize=address -fno-omit-frame-pointer --coverage -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread
 
-build src/test/rotate90_test: cpp_LINKER src/test/src@test@@rotate90_test@exe/rotate90_test.cc.o src/test/src@test@@rotate90_test@exe/gtest-all.cc.o src/test/src@test@@rotate90_test@exe/gtest_main.cc.o
- LINK_ARGS = --coverage -Wl,--no-undefined -Wl,--as-needed -pthread
+build src/test/src@test@@rotate90_test.cc@exe/gtest-all.cc.o: cpp_COMPILER /usr/src/gtest/src/gtest-all.cc
+ DEPFILE = src/test/src@test@@rotate90_test.cc@exe/gtest-all.cc.o.d
+ ARGS = -Isrc/test/src@test@@rotate90_test.cc@exe -Isrc/test -I../src/test -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -fsanitize=address -fno-omit-frame-pointer --coverage -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread
+
+build src/test/src@test@@rotate90_test.cc@exe/gtest_main.cc.o: cpp_COMPILER /usr/src/gtest/src/gtest_main.cc
+ DEPFILE = src/test/src@test@@rotate90_test.cc@exe/gtest_main.cc.o.d
+ ARGS = -Isrc/test/src@test@@rotate90_test.cc@exe -Isrc/test -I../src/test -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -fsanitize=address -fno-omit-frame-pointer --coverage -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread
+
+build src/test/rotate90_test.cc: cpp_LINKER src/test/src@test@@rotate90_test.cc@exe/rotate90_test.cc.o src/test/src@test@@rotate90_test.cc@exe/gtest-all.cc.o src/test/src@test@@rotate90_test.cc@exe/gtest_main.cc.o
+ LINK_ARGS = -fsanitize=address --coverage -Wl,--no-undefined -Wl,--as-needed -pthread
 
 # Test rules
 
@@ -147,7 +154,7 @@ build meson-uninstall: CUSTOM_COMMAND PHONY
 
 build uninstall: phony meson-uninstall
 
-build all: phony src/test/rotate90_test
+build all: phony src/myproject/myproject src/test/rotate90_test.cc
 
 default all
 
@@ -169,11 +176,11 @@ build meson-clean: CUSTOM_COMMAND PHONY | clean-gcda clean-gcno
  COMMAND = ninja -t clean
  description = Cleaning.
 
-build build.ninja: REGENERATE_BUILD ../meson.build ../src/meson.build ../src/test/meson.build meson-private/coredata.dat
+build build.ninja: REGENERATE_BUILD ../meson.build ../src/meson.build ../src/myproject/meson.build ../src/test/meson.build meson-private/coredata.dat
  pool = console
 
 build reconfigure: REGENERATE_BUILD PHONY
  pool = console
 
-build ../meson.build ../src/meson.build ../src/test/meson.build meson-private/coredata.dat: phony 
+build ../meson.build ../src/meson.build ../src/myproject/meson.build ../src/test/meson.build meson-private/coredata.dat: phony 
 

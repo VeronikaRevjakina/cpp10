@@ -1,4 +1,4 @@
-Build started at 2019-01-07T10:47:08.602584
+Build started at 2019-01-07T12:13:35.708212
 Main binary: /usr/bin/python3
 Python system: Linux
 The Meson build system
@@ -12,12 +12,12 @@ Native C++ compiler: c++ (gcc 5.4.0 "c++ (Ubuntu 5.4.0-6ubuntu1~16.04.11) 5.4.0 
 Build machine cpu family: x86_64
 Build machine cpu: x86_64
 Dependency gtest found: YES (cached)
-Adding test "rotate90"
-Build targets in project: 1
+Adding test "rotate90.h"
+Build targets in project: 2
 Found ninja-1.5.1 at /usr/bin/ninja
 Running compile:
-Working directory:  /tmp/tmpcwes178s
-Command line:  c++ /tmp/tmpcwes178s/testfile.cpp -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpcwes178s/output.obj -std=c++11 
+Working directory:  /tmp/tmptugg1kjt
+Command line:  c++ /tmp/tmptugg1kjt/testfile.cpp -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmptugg1kjt/output.obj -std=c++11 
 
 Code:
  int i = static_cast<int>(0);
@@ -27,8 +27,8 @@ Compiler stderr:
  
 Compiler accepts -std=c++11: YES
 Running compile:
-Working directory:  /tmp/tmp_zzt601s
-Command line:  c++ /tmp/tmp_zzt601s/testfile.cpp -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp_zzt601s/output.obj -O0 -fpermissive --print-search-dirs 
+Working directory:  /tmp/tmpf39l0j5y
+Command line:  c++ /tmp/tmpf39l0j5y/testfile.cpp -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpf39l0j5y/output.obj -O0 -fpermissive --print-search-dirs 
 
 Code:
  

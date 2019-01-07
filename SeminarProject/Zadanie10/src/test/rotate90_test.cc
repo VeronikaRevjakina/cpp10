@@ -3,6 +3,7 @@
 #include <myproject/rotate90.h>
 
 
+
 TEST(ROTATE90, MULTIPLICITY){
     Coordinates<int> a =Coordinates<int> (1, 2);
     EXPECT_FALSE(rotate90(a, 30));

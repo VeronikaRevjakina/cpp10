@@ -1,8 +1,9 @@
 gtest = dependency('gtest', main: true)
 test(
-    'rotate90',
+    'rotate90.h',
     executable(
-        'rotate90_test',
+        'rotate90_test.cc',
+        
         sources: ['rotate90_test.cc'],
         include_directories: src,
         dependencies: [gtest]
