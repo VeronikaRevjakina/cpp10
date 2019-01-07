@@ -50,7 +50,7 @@ rule CUSTOM_COMMAND_DEP
  restat = 1
 
 rule REGENERATE_BUILD
- command = /home/veronika/.local/bin/meson --internal regenerate /home/veronika/SeminarProject/Zadanie102 /home/veronika/SeminarProject/Zadanie102/build --backend ninja
+ command = /home/veronika/.local/bin/meson --internal regenerate /home/veronika/SeminarProject/Zadanie10 /home/veronika/SeminarProject/Zadanie10/build --backend ninja
  description = Regenerating build files.
  generator = 1
 
@@ -67,10 +67,6 @@ build src/myproject/src@myproject@@myproject@exe/main.cc.o: cpp_COMPILER ../src/
 build src/myproject/myproject: cpp_LINKER src/myproject/src@myproject@@myproject@exe/main.cc.o
  LINK_ARGS = -fsanitize=address --coverage -Wl,--no-undefined -Wl,--as-needed
 
-build src/test/src@test@@rotate90_test.cc@exe/main_test.cc.o: cpp_COMPILER ../src/test/main_test.cc
- DEPFILE = src/test/src@test@@rotate90_test.cc@exe/main_test.cc.o.d
- ARGS = -Isrc/test/src@test@@rotate90_test.cc@exe -Isrc/test -I../src/test -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -fsanitize=address -fno-omit-frame-pointer --coverage -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread
-
 build src/test/src@test@@rotate90_test.cc@exe/rotate90_test.cc.o: cpp_COMPILER ../src/test/rotate90_test.cc
  DEPFILE = src/test/src@test@@rotate90_test.cc@exe/rotate90_test.cc.o.d
  ARGS = -Isrc/test/src@test@@rotate90_test.cc@exe -Isrc/test -I../src/test -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -fsanitize=address -fno-omit-frame-pointer --coverage -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread
@@ -83,7 +79,7 @@ build src/test/src@test@@rotate90_test.cc@exe/gtest_main.cc.o: cpp_COMPILER /usr
  DEPFILE = src/test/src@test@@rotate90_test.cc@exe/gtest_main.cc.o.d
  ARGS = -Isrc/test/src@test@@rotate90_test.cc@exe -Isrc/test -I../src/test -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -fsanitize=address -fno-omit-frame-pointer --coverage -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread
 
-build src/test/rotate90_test.cc: cpp_LINKER src/test/src@test@@rotate90_test.cc@exe/main_test.cc.o src/test/src@test@@rotate90_test.cc@exe/rotate90_test.cc.o src/test/src@test@@rotate90_test.cc@exe/gtest-all.cc.o src/test/src@test@@rotate90_test.cc@exe/gtest_main.cc.o
+build src/test/rotate90_test.cc: cpp_LINKER src/test/src@test@@rotate90_test.cc@exe/rotate90_test.cc.o src/test/src@test@@rotate90_test.cc@exe/gtest-all.cc.o src/test/src@test@@rotate90_test.cc@exe/gtest_main.cc.o
  LINK_ARGS = -fsanitize=address --coverage -Wl,--no-undefined -Wl,--as-needed -pthread
 
 # Test rules
@@ -113,7 +109,7 @@ build install: phony meson-install
 
 build meson-dist: CUSTOM_COMMAND PHONY
  DESC = Creating$ source$ packages
- COMMAND = /home/veronika/.local/bin/meson --internal dist /home/veronika/SeminarProject/Zadanie102 /home/veronika/SeminarProject/Zadanie102/build /home/veronika/.local/bin/meson
+ COMMAND = /home/veronika/.local/bin/meson --internal dist /home/veronika/SeminarProject/Zadanie10 /home/veronika/SeminarProject/Zadanie10/build /home/veronika/.local/bin/meson
  pool = console
 
 build dist: phony meson-dist
@@ -121,25 +117,25 @@ build dist: phony meson-dist
 # Coverage rules
 
 build meson-coverage: CUSTOM_COMMAND PHONY
- COMMAND = /home/veronika/.local/bin/meson --internal coverage /home/veronika/SeminarProject/Zadanie102 /home/veronika/SeminarProject/Zadanie102/subprojects /home/veronika/SeminarProject/Zadanie102/build /home/veronika/SeminarProject/Zadanie102/build/meson-logs
+ COMMAND = /home/veronika/.local/bin/meson --internal coverage /home/veronika/SeminarProject/Zadanie10 /home/veronika/SeminarProject/Zadanie10/subprojects /home/veronika/SeminarProject/Zadanie10/build /home/veronika/SeminarProject/Zadanie10/build/meson-logs
  description = Generates$ coverage$ reports.
 
 build coverage: phony meson-coverage
 
 build meson-coverage-xml: CUSTOM_COMMAND PHONY
- COMMAND = /home/veronika/.local/bin/meson --internal coverage --xml /home/veronika/SeminarProject/Zadanie102 /home/veronika/SeminarProject/Zadanie102/subprojects /home/veronika/SeminarProject/Zadanie102/build /home/veronika/SeminarProject/Zadanie102/build/meson-logs
+ COMMAND = /home/veronika/.local/bin/meson --internal coverage --xml /home/veronika/SeminarProject/Zadanie10 /home/veronika/SeminarProject/Zadanie10/subprojects /home/veronika/SeminarProject/Zadanie10/build /home/veronika/SeminarProject/Zadanie10/build/meson-logs
  description = Generates$ XML$ coverage$ report.
 
 build coverage-xml: phony meson-coverage-xml
 
 build meson-coverage-text: CUSTOM_COMMAND PHONY
- COMMAND = /home/veronika/.local/bin/meson --internal coverage --text /home/veronika/SeminarProject/Zadanie102 /home/veronika/SeminarProject/Zadanie102/subprojects /home/veronika/SeminarProject/Zadanie102/build /home/veronika/SeminarProject/Zadanie102/build/meson-logs
+ COMMAND = /home/veronika/.local/bin/meson --internal coverage --text /home/veronika/SeminarProject/Zadanie10 /home/veronika/SeminarProject/Zadanie10/subprojects /home/veronika/SeminarProject/Zadanie10/build /home/veronika/SeminarProject/Zadanie10/build/meson-logs
  description = Generates$ text$ coverage$ report.
 
 build coverage-text: phony meson-coverage-text
 
 build meson-coverage-html: CUSTOM_COMMAND PHONY
- COMMAND = /home/veronika/.local/bin/meson --internal coverage --html /home/veronika/SeminarProject/Zadanie102 /home/veronika/SeminarProject/Zadanie102/subprojects /home/veronika/SeminarProject/Zadanie102/build /home/veronika/SeminarProject/Zadanie102/build/meson-logs
+ COMMAND = /home/veronika/.local/bin/meson --internal coverage --html /home/veronika/SeminarProject/Zadanie10 /home/veronika/SeminarProject/Zadanie10/subprojects /home/veronika/SeminarProject/Zadanie10/build /home/veronika/SeminarProject/Zadanie10/build/meson-logs
  description = Generates$ HTML$ coverage$ report.
 
 build coverage-html: phony meson-coverage-html
@@ -147,7 +143,7 @@ build coverage-html: phony meson-coverage-html
 # Suffix
 
 build meson-scan-build: CUSTOM_COMMAND PHONY
- COMMAND = /home/veronika/.local/bin/meson --internal scanbuild /home/veronika/SeminarProject/Zadanie102 /home/veronika/SeminarProject/Zadanie102/build /home/veronika/.local/bin/meson
+ COMMAND = /home/veronika/.local/bin/meson --internal scanbuild /home/veronika/SeminarProject/Zadanie10 /home/veronika/SeminarProject/Zadanie10/build /home/veronika/.local/bin/meson
  pool = console
 
 build scan-build: phony meson-scan-build
