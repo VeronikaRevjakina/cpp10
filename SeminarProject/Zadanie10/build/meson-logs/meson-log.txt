@@ -1,0 +1,41 @@
+Build started at 2019-01-07T10:47:08.602584
+Main binary: /usr/bin/python3
+Python system: Linux
+The Meson build system
+Version: 0.48.0
+Source dir: /home/veronika/SeminarProject/Zadanie10
+Build dir: /home/veronika/SeminarProject/Zadanie10/build
+Build type: native build
+Project name: myproject
+Project version: 0.1.0
+Native C++ compiler: c++ (gcc 5.4.0 "c++ (Ubuntu 5.4.0-6ubuntu1~16.04.11) 5.4.0 20160609")
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Dependency gtest found: YES (cached)
+Adding test "rotate90"
+Build targets in project: 1
+Found ninja-1.5.1 at /usr/bin/ninja
+Running compile:
+Working directory:  /tmp/tmpcwes178s
+Command line:  c++ /tmp/tmpcwes178s/testfile.cpp -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpcwes178s/output.obj -std=c++11 
+
+Code:
+ int i = static_cast<int>(0);
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler accepts -std=c++11: YES
+Running compile:
+Working directory:  /tmp/tmp_zzt601s
+Command line:  c++ /tmp/tmp_zzt601s/testfile.cpp -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp_zzt601s/output.obj -O0 -fpermissive --print-search-dirs 
+
+Code:
+ 
+Compiler stdout:
+ install: /usr/lib/gcc/x86_64-linux-gnu/5/
+programs: =/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../x86_64-linux-gnu/bin/
+libraries: =/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../x86_64-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/5/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/5/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../x86_64-linux-gnu/lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
+
+Compiler stderr:
+ 

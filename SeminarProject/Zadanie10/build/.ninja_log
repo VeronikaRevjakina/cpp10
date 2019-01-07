@@ -1,0 +1,13 @@
+# ninja log v5
+1	758	0	src/test/src@test@@rotate90_test@exe/rotate90_test.cc.o	d16884318d7f58ed
+2	924	0	src/test/src@test@@rotate90_test@exe/gtest_main.cc.o	dcd84a2a695b930f
+2	3324	0	src/test/src@test@@rotate90_test@exe/gtest-all.cc.o	83290d0359b9cb2d
+3324	3488	0	src/test/rotate90_test	1f13d9065335a3f3
+3488	3759	0	meson-test	eefbdab1a33edc1c
+0	283	0	build.ninja	e689185beb47e444
+2	632	0	src/test/src@test@@rotate90_test@exe/gtest_main.cc.o	45ced82f7a93c3bf
+1	944	0	src/test/src@test@@rotate90_test@exe/rotate90_test.cc.o	215f49c5b8736700
+1	3999	0	src/test/src@test@@rotate90_test@exe/gtest-all.cc.o	3486c88dfbe8d928
+4000	4177	0	src/test/rotate90_test	1e63a61b8d7863a2
+4177	4434	0	meson-test	eefbdab1a33edc1c
+0	437	0	meson-coverage-text	251b901eb7c9818f
