@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------------
                            GCC Code Coverage Report
-Directory: /home/veronika/SeminarProject/Zadanie10/build
+Directory: /home/veronika/SeminarProject/Zadanie102/build
 ------------------------------------------------------------------------------
 File                                       Lines    Exec  Cover   Missing
 ------------------------------------------------------------------------------
